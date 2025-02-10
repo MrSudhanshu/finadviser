@@ -1,0 +1,413 @@
+/* Theme Variables */
+:root[data-theme="light"] {
+    --bg-color: #f5f7fa;
+    --text-color: #333333;
+    --heading-color: #2c3e50;
+    --card-bg: #ffffff;
+    --border-color: #e9ecef;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --input-bg: #ffffff;
+    --hover-bg: #f8f9fa;
+}
+
+:root[data-theme="dark"] {
+    --bg-color: #1a1f24;
+    --text-color: #e1e7ef;
+    --heading-color: #ffffff;
+    --card-bg: #242a32;
+    --border-color: #2d353f;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --input-bg: #1e242c;
+    --hover-bg: #2a3138;
+}
+
+/* Typography */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    color: var(--heading-color);
+    font-weight: 700;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 15px var(--shadow-color);
+    background: linear-gradient(135deg, #007ACC 0%, #0056b3 100%) !important;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Container and Layout */
+.container {
+    max-width: 1200px;
+    padding: 2rem 1rem;
+}
+
+/* Landing Page Styles */
+.landing-container {
+    padding: 4rem 1rem;
+}
+
+.landing-container h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #007ACC 0%, #0056b3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.landing-container .lead {
+    font-size: 1.25rem;
+    color: #4a5568;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    color: #2d3748;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.feature-item i {
+    font-size: 1.5rem;
+    color: #28A745;
+}
+
+.landing-illustration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 3rem;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.landing-illustration i {
+    font-size: 5rem;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.landing-illustration i:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* Progress Bar */
+.progress {
+    height: 12px;
+    border-radius: 6px;
+    background-color: var(--border-color);
+    margin: 2rem 0;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: linear-gradient(to right, #007ACC, #00a8ff);
+    transition: width 0.8s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shimmer 2s infinite;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+    background: var(--card-bg);
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px var(--shadow-color);
+}
+
+.card-header {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.5rem 2rem;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+.card-header h4 {
+    font-size: 1.5rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.card-header i {
+    font-size: 1.8rem;
+    color: #007ACC;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+/* Form Controls */
+.form-label {
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.form-control, .form-select {
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.875rem 1.25rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #007ACC;
+    box-shadow: 0 0 0 4px rgba(0, 122, 204, 0.15);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+.input-group {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.input-group-text {
+    background-color: var(--hover-bg);
+    border: 2px solid var(--border-color);
+    padding: 0.875rem 1.25rem;
+    color: var(--text-color);
+    font-weight: 600;
+    min-width: 3.5rem;
+    justify-content: center;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.875rem 2.5rem;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #007ACC 0%, #0056b3 100%);
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 122, 204, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #003d80 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 122, 204, 0.4);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    border: none;
+    box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(108, 117, 125, 0.4);
+}
+
+/* Results Section */
+.result-card {
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background-color: var(--card-bg);
+    background: bottom !important;
+    border-left: 6px solid;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    transition: transform 0.3s ease;
+}
+
+.result-card:hover {
+    transform: translateX(5px);
+}
+
+.result-positive {
+    border-left-color: #28A745;
+    background: linear-gradient(to right, #f8fff9, #fff);
+}
+
+.result-warning {
+    border-left-color: #FFC107;
+    background: linear-gradient(to right, #fffcf5, #fff);
+}
+
+.result-negative {
+    border-left-color: #DC3545;
+    background: linear-gradient(to right, #fff8f8, #fff);
+}
+
+.list-group-item {
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    transition: all 0.3s ease;
+    color: var(--text-color);
+}
+
+.list-group-item:hover {
+    background: var(--hover-bg);
+}
+
+/* Charts */
+canvas {
+    margin: 1.5rem 0;
+    max-width: 100%;
+    height: 300px !important;
+}
+
+.card .card-body canvas {
+    margin: 0;
+}
+
+/* Home Button */
+.home-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    padding: 0.875rem 1.75rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    background: var(--card-bg);
+    color: #007ACC;
+}
+
+.home-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    background: #007ACC;
+    color: white;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shimmer {
+    100% {
+        left: 100%;
+    }
+}
+
+.step {
+    transition: all 0.4s ease-in-out;
+}
+
+.d-none {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .landing-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .card {
+        margin-bottom: 1rem;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .progress {
+        margin: 1rem 0;
+    }
+
+    .landing-illustration {
+        margin-top: 2rem;
+        padding: 1rem;
+    }
+
+    .home-btn {
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
